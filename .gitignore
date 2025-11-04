@@ -1,0 +1,133 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Data files (keep processed dataset but ignore large raw files)
+data/raw/*.csv
+data/external/*.csv
+*.pkl
+*.pickle
+
+# Model files
+experiments/models/*.pkl
+experiments/models/*.joblib
+experiments/models/*.h5
+experiments/models/*.pt
+experiments/models/*.pth
+
+# Keep the main processed dataset
+!data/processed/ml_ready_dataset.csv
+!data/processed/ml_ready_dataset_features.json
+
+# Logs
+logs/
+*.log
+
+# MLflow
+mlruns/
+.mlflow/
+
+# Weights & Biases
+wandb/
+
+# Environment variables
+.env
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# API keys and secrets
+config/secrets.yaml
+config/api_keys.yaml
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS generated files
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# Cache directories
+.cache/
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+
+# Documentation builds
+docs/_build/
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/

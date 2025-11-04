@@ -1,0 +1,129 @@
+# EUR/USD Forex Prediction Project Configuration
+
+# Data Configuration
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  external_dir: "data/external"
+  
+  # Price data settings
+  price:
+    symbol: "EURUSD=X"
+    start_date: "2020-01-01"
+    interval: "1d"  # 1d, 1h, 5m, etc.
+    
+  # Sentiment data settings
+  sentiment:
+    max_articles_per_feed: 100
+    feeds:
+      - name: "reuters_forex"
+        url: "https://feeds.reuters.com/reuters/UKforex"
+      - name: "marketwatch" 
+        url: "https://feeds.marketwatch.com/marketwatch/marketpulse/"
+      - name: "investing_forex"
+        url: "https://www.investing.com/rss/news_301.rss"
+
+# Feature Engineering
+features:
+  # Technical indicators
+  moving_averages: [5, 10, 20, 50]
+  rsi_period: 14
+  volatility_windows: [5, 20]
+  
+  # Sentiment aggregation
+  sentiment_aggregation:
+    - "mean"
+    - "std" 
+    - "min"
+    - "max"
+    - "count"
+
+# Model Configuration
+models:
+  # Models to evaluate
+  candidates:
+    - "random_forest"
+    - "xgboost" 
+    - "lightgbm"
+    - "neural_network"
+    
+  # Random Forest settings
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    random_state: 42
+    
+  # XGBoost settings  
+  xgboost:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    random_state: 42
+    
+  # LightGBM settings
+  lightgbm:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    random_state: 42
+    
+  # Neural Network settings
+  neural_network:
+    hidden_layers: [64, 32, 16]
+    activation: "relu"
+    dropout_rate: 0.2
+    epochs: 100
+    batch_size: 32
+    learning_rate: 0.001
+
+# Training Configuration
+training:
+  test_size: 0.2
+  validation_size: 0.2
+  random_state: 42
+  
+  # Cross-validation
+  cv_folds: 5
+  
+  # Class imbalance handling
+  handle_imbalance: true
+  imbalance_method: "smote"  # smote, undersample, oversample
+  
+# Evaluation Metrics
+evaluation:
+  primary_metric: "f1_score"
+  metrics:
+    - "accuracy"
+    - "precision" 
+    - "recall"
+    - "f1_score"
+    - "roc_auc"
+    - "confusion_matrix"
+
+# Experiment Tracking
+experiments:
+  tracking_system: "mlflow"  # mlflow, wandb, none
+  experiment_name: "eurusd_prediction"
+  
+  # MLFlow settings
+  mlflow:
+    tracking_uri: "logs/mlruns"
+    
+  # Weights & Biases settings  
+  wandb:
+    project: "forex-prediction"
+    entity: "your-team-name"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  log_dir: "logs"
+  log_file: "forex_prediction.log"
+
+# Paths
+paths:
+  models_dir: "experiments/models"
+  results_dir: "experiments/results" 
+  notebooks_dir: "notebooks"
+  src_dir: "src"
